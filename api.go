@@ -85,9 +85,9 @@ func (c *Client) GetSchedule(ctx context.Context,
         return nil, NewAPIError(resp.StatusCode, string(b))
     }
 
-    var aux []Lesson
-    if err := json.NewDecoder(resp.Body).Decode(&aux); err != nil {
+    res := make([]Lesson, 0)
+    if err := json.NewDecoder(resp.Body).Decode(&res); err != nil {
         return nil, err
     }
-    return aux, nil
+    return res, nil
 }

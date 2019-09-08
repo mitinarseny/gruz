@@ -67,7 +67,7 @@ func TestLesson_UnmarshalJSON(t *testing.T) {
         DisciplineOid:      52792,
         DisciplineInPlan:   "2043984560",
         DisciplineTypeLoad: 7,
-        End:                time.Date(2019, 9, 3, 10, 20, 0, 0, getLocation()),
+        End:                time.Date(2019, 9, 3, 10, 20, 0, 0, nil),
         Group:              nil,
         GroupOid:           0,
         HideInCapacity:     0,
@@ -77,7 +77,7 @@ func TestLesson_UnmarshalJSON(t *testing.T) {
         LecturerOid:        34354,
         LecturerUID:        "555711875",
         ModifiedAt:         time.Date(2019, 6, 26, 16, 18, 41, 0, time.UTC),
-        Start:              time.Date(2019, 9, 3, 9, 0, 0, 0, getLocation()),
+        Start:              time.Date(2019, 9, 3, 9, 0, 0, 0, nil),
         SubGroup:           nil,
         SubGroupOid:        0,
     }
