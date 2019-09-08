@@ -16,7 +16,7 @@ func ruzDate(t *time.Time) string {
 
 func getLocation() *time.Location {
     once.Do(func() {
-        location, _ = time.LoadLocation("Europe/Moscow")
+        location, _ = time.LoadLocation(timeZone)
     })
     return location
 }

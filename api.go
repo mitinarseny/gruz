@@ -18,6 +18,7 @@ type PersonType string
 const (
     baseURL          = "http://ruz.hse.ru/api"
     scheduleEndpoint = "schedule"
+    timeZone = "Europe/Moscow"
 
     RussianLanguage Language = 1
     EnglishLanguage Language = 2
