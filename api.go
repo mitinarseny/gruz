@@ -53,13 +53,13 @@ func NewClient(client *http.Client) *Client {
 }
 
 func (c *Client) GetSchedule(ctx context.Context,
-    hseID int, personType PersonType,
+    hseID int64, personType PersonType,
     fromDate time.Time, toDate time.Time, lang Language, ) ([]Lesson, error) {
     req, err := http.NewRequestWithContext(ctx, "GET", strings.Join([]string{
         baseURL,
         scheduleEndpoint,
         string(personType),
-        strconv.Itoa(hseID),
+        strconv.FormatInt(hseID, 10),
     }, "/"), nil)
     if err != nil {
         return nil, err
