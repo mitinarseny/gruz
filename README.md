@@ -12,3 +12,4 @@ for _, l := range lessons {
     fmt.Println(l.DiDiscipline)
 }
 ```
+> Note: Lesson.Start and Lesson.End are in `Europe/Moscow` timeZone

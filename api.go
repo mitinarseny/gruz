@@ -18,7 +18,6 @@ type PersonType string
 const (
     baseURL          = "http://ruz.hse.ru/api"
     scheduleEndpoint = "schedule"
-    timeZone = "Europe/Moscow"
 
     RussianLanguage Language = 1
     EnglishLanguage Language = 2
@@ -55,7 +54,7 @@ func NewClient(client *http.Client) *Client {
 
 func (c *Client) GetSchedule(ctx context.Context,
     hseID int64, personType PersonType,
-    fromDate time.Time, toDate time.Time, lang Language, ) ([]Lesson, error) {
+    fromDate time.Time, toDate time.Time, lang Language) ([]Lesson, error) {
     req, err := http.NewRequestWithContext(ctx, "GET", strings.Join([]string{
         baseURL,
         scheduleEndpoint,

@@ -76,21 +76,16 @@ func (l *Lesson) UnmarshalJSON(b []byte) error {
         return err
     }
     l.ModifiedAt = modifiedAt
-    lessonLoc, err := time.LoadLocation(timeZone)
-    if err != nil {
-        return err
-    }
-    start, err := time.ParseInLocation("2006.01.02T15:04",
-        aux.Date+"T"+aux.BeginLesson,
-        lessonLoc)
+
+    start, err := time.Parse("2006.01.02T15:04Z07:00",
+        aux.Date+"T"+aux.BeginLesson+"+03:00")
     if err != nil {
         return err
     }
     l.Start = start
 
-    end, err := time.ParseInLocation("2006.01.02T15:04",
-        aux.Date+"T"+aux.EndLesson,
-        lessonLoc)
+    end, err := time.Parse("2006.01.02T15:04Z07:00",
+        aux.Date+"T"+aux.EndLesson+"+03:00")
     if err != nil {
         return err
     }
