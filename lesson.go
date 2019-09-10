@@ -77,14 +77,14 @@ func (l *Lesson) UnmarshalJSON(b []byte) error {
     }
     l.ModifiedAt = modifiedAt
 
-    start, err := time.Parse("2006.01.02T15:04Z07:00",
+    start, err := time.Parse(time.RFC3339,
         aux.Date+"T"+aux.BeginLesson+"+03:00")
     if err != nil {
         return err
     }
     l.Start = start
 
-    end, err := time.Parse("2006.01.02T15:04Z07:00",
+    end, err := time.Parse(time.RFC3339,
         aux.Date+"T"+aux.EndLesson+"+03:00")
     if err != nil {
         return err
