@@ -67,13 +67,13 @@ func (l *Lesson) UnmarshalJSON(b []byte) error {
 
     createdAt, err := time.Parse(time.RFC3339, strings.TrimSuffix(aux.CreatedDate, "00:00"))
     if err != nil {
-        return err
+        createdAt = time.Now() // treat as it has been just created
     }
     l.CreatedAt = createdAt
 
     modifiedAt, err := time.Parse(time.RFC3339, strings.TrimSuffix(aux.ModifiedDate, "00:00"))
     if err != nil {
-        return err
+        modifiedAt = l.CreatedAt // should have named package "balast" instead of "gruz"
     }
     l.ModifiedAt = modifiedAt
 
